@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Hrishab Hosmani — Cybersecurity Professional</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#06090f; --surface:#0b1120; --card:#0f1828;
+  --border:#1c2d44; --border2:#253a55;
+  --accent:#4f8ef7; --accent-d:rgba(79,142,247,.12);
+  --indigo:#6366f1; --emerald:#10b981;
+  --text:#dde5f2; --sub:#7e97b8; --muted:#3a526a; --white:#f0f4fc;
+  --danger:#ef4444;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.65;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+img{display:block;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(6,9,15,.94);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;padding:0 7%;height:58px;}
+.logo{font-size:.9rem;font-weight:700;color:var(--white);letter-spacing:.04em;}
+.logo span{color:var(--accent);}
+.nav-links{display:flex;gap:32px;list-style:none;}
+.nav-links a{color:var(--sub);font-size:.79rem;font-weight:500;letter-spacing:.04em;transition:color .18s;}
+.nav-links a:hover{color:var(--white);}
+
+/* ── HERO ── */
+#hero{min-height:100vh;display:flex;align-items:center;padding-top:58px;position:relative;overflow:hidden;}
+.hero-bg-illustration{position:absolute;inset:0;z-index:0;pointer-events:none;}
+#cv-net{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none;}
+.hero-inner{display:flex;align-items:flex-start;justify-content:space-between;gap:60px;width:100%;padding:0 8%;position:relative;z-index:3;padding-top:40px;padding-bottom:40px;}
+.hero-text{max-width:560px;padding-top:20px;}
+.hero-eyebrow{display:flex;align-items:center;gap:10px;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;}
+.hero-eyebrow-dot{width:7px;height:7px;border-radius:50%;background:var(--emerald);box-shadow:0 0 8px var(--emerald);animation:pulse-dot 2s ease-in-out infinite;}
+@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(1.3)}}
+.hero-name{font-size:clamp(2.4rem,4.2vw,3.6rem);font-weight:800;line-height:1.08;letter-spacing:-.035em;color:var(--white);margin-bottom:10px;}
+.hero-name em{color:var(--accent);font-style:normal;}
+.hero-role{font-size:1rem;font-weight:400;color:var(--sub);margin-bottom:4px;}
+.hero-school{font-size:.88rem;font-weight:400;color:var(--muted);margin-bottom:26px;}
+.typing-line{font-size:.83rem;color:var(--sub);font-family:'JetBrains Mono',monospace;margin-bottom:28px;min-height:22px;}
+.cursor{display:inline-block;width:2px;height:.9em;background:var(--accent);vertical-align:text-bottom;animation:blink .7s step-end infinite;margin-left:2px;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.hero-desc{color:var(--sub);font-size:.91rem;max-width:480px;margin-bottom:32px;line-height:1.82;}
+.hero-desc strong{color:var(--text);font-weight:600;}
+.btn-row{display:flex;gap:11px;flex-wrap:wrap;}
+.btn{padding:11px 24px;border-radius:6px;font-size:.83rem;font-weight:600;letter-spacing:.02em;transition:all .18s;cursor:pointer;font-family:'Inter',sans-serif;}
+.btn-primary{background:var(--accent);color:#fff;}
+.btn-primary:hover{background:#6ba3ff;transform:translateY(-1px);box-shadow:0 8px 24px rgba(79,142,247,.3);}
+.btn-ghost{background:transparent;border:1px solid var(--border2);color:var(--sub);}
+.btn-ghost:hover{border-color:var(--accent);color:var(--white);transform:translateY(-1px);}
+
+/* ── HERO RIGHT PANEL ── */
+.hero-right{display:flex;flex-direction:column;align-items:center;gap:18px;flex-shrink:0;}
+.photo-wrap{position:relative;width:210px;height:210px;}
+.photo-border{position:absolute;inset:-2px;border-radius:50%;background:conic-gradient(var(--accent) 0%,var(--indigo) 45%,var(--accent) 100%);animation:spin 5.5s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.photo-mask{position:absolute;inset:3px;border-radius:50%;background:var(--bg);}
+.photo-wrap img{width:210px;height:210px;border-radius:50%;object-fit:cover;object-position:top center;position:relative;z-index:1;}
+.photo-scan{position:absolute;left:0;right:0;height:2px;background:linear-gradient(to right,transparent,rgba(79,142,247,.55),transparent);animation:scan 2.8s ease-in-out infinite;z-index:2;}
+@keyframes scan{0%{top:0;opacity:0}15%{opacity:1}85%{opacity:1}100%{top:100%;opacity:0}}
+
+/* ── SECURITY PROFILE CARD ── */
+.sec-profile-card{
+  width:210px;background:rgba(11,17,32,.9);border:1px solid var(--border);
+  border-radius:10px;overflow:hidden;
+  box-shadow:0 4px 30px rgba(0,0,0,.4), inset 0 1px 0 rgba(79,142,247,.08);
+}
+.spc-header{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--border);background:rgba(79,142,247,.05);}
+.spc-dot{width:7px;height:7px;border-radius:50%;background:var(--emerald);box-shadow:0 0 7px var(--emerald);animation:pulse-dot 2s infinite;}
+.spc-title{font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--sub);font-family:'JetBrains Mono',monospace;}
+.spc-row{display:flex;justify-content:space-between;align-items:center;padding:7px 14px;border-bottom:1px solid rgba(28,45,68,.5);}
+.spc-row:last-child{border-bottom:none;}
+.spc-label{font-size:.71rem;color:var(--muted);font-family:'JetBrains Mono',monospace;}
+.spc-val{font-size:.71rem;font-weight:600;color:var(--accent);font-family:'JetBrains Mono',monospace;}
+.spc-val.green{color:var(--emerald);}
+.spc-val.red{color:var(--danger);}
+
+/* ── SECTIONS ── */
+section{padding:96px 8% 80px;position:relative;}
+section:nth-child(even){background:rgba(11,17,32,.55);}
+.sec-eyebrow{font-size:.69rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+h2.sec-title{font-size:1.7rem;font-weight:700;color:var(--white);letter-spacing:-.025em;margin-bottom:12px;}
+.sec-rule{width:36px;height:2px;background:var(--accent);margin-bottom:46px;border-radius:2px;}
+.sec-desc{color:var(--sub);font-size:.91rem;max-width:540px;margin-bottom:46px;line-height:1.78;}
+
+/* ── WATERMARK ICON ── */
+.watermark-icon{position:absolute;right:6%;top:50%;transform:translateY(-50%);opacity:.03;pointer-events:none;z-index:0;}
+.watermark-icon svg{width:300px;height:300px;}
+
+/* ── ABOUT ── */
+.about-layout{display:grid;grid-template-columns:1.5fr 1fr;gap:64px;align-items:start;position:relative;z-index:1;}
+.about-text p{color:var(--sub);font-size:.91rem;line-height:1.85;margin-bottom:18px;}
+.about-text p strong{color:var(--text);font-weight:600;}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:22px 18px;text-align:center;transition:border-color .2s;}
+.stat-card:hover{border-color:var(--border2);}
+.stat-n{font-size:2.1rem;font-weight:800;color:var(--accent);letter-spacing:-.04em;}
+.stat-l{font-size:.7rem;font-weight:500;color:var(--muted);margin-top:4px;letter-spacing:.07em;text-transform:uppercase;}
+.about-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;}
+.chip{background:var(--accent-d);border:1px solid rgba(79,142,247,.2);color:var(--accent);padding:5px 13px;border-radius:20px;font-size:.76rem;font-weight:500;}
+
+/* ── TIMELINE ── */
+.tl{position:relative;padding-left:28px;z-index:1;}
+.tl::before{content:'';position:absolute;left:0;top:8px;bottom:0;width:1px;background:linear-gradient(to bottom,var(--border2),var(--border),transparent);}
+.tl-item{position:relative;margin-bottom:52px;}
+.tl-dot{position:absolute;left:-34px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);box-shadow:0 0 0 3px rgba(79,142,247,.2);}
+.tl-header{margin-bottom:14px;}
+.tl-company{font-size:1rem;font-weight:700;color:var(--white);letter-spacing:-.01em;}
+.tl-role{font-size:.84rem;font-weight:500;color:var(--accent);margin:3px 0;}
+.tl-date{font-size:.76rem;color:var(--muted);}
+.tl-bullets{list-style:none;}
+.tl-bullets li{color:var(--sub);font-size:.88rem;margin-bottom:10px;padding-left:16px;position:relative;line-height:1.75;}
+.tl-bullets li::before{content:'—';position:absolute;left:0;color:var(--border2);}
+
+/* ── PROJECT CARDS ── */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:15px;position:relative;z-index:1;}
+.proj-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;cursor:pointer;transition:all .2s;display:flex;flex-direction:column;gap:11px;position:relative;overflow:hidden;}
+.proj-card-accent{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--accent),var(--indigo));transform:scaleX(0);transform-origin:left;transition:transform .28s;}
+.proj-card:hover .proj-card-accent{transform:scaleX(1);}
+.proj-card:hover{border-color:var(--border2);transform:translateY(-3px);box-shadow:0 14px 36px rgba(0,0,0,.38);}
+.proj-card-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.proj-card-top{display:flex;align-items:flex-start;gap:12px;}
+.proj-card-meta{flex:1;}
+.proj-num{font-size:.68rem;font-weight:600;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:.07em;margin-bottom:3px;}
+.proj-card h3{font-size:.91rem;font-weight:600;color:var(--white);line-height:1.4;letter-spacing:-.01em;}
+.proj-card p{color:var(--sub);font-size:.83rem;flex:1;line-height:1.72;}
+.proj-tags{display:flex;gap:5px;flex-wrap:wrap;}
+.proj-tag{background:rgba(79,142,247,.07);border:1px solid rgba(79,142,247,.13);color:var(--sub);padding:2px 8px;border-radius:4px;font-size:.69rem;font-weight:500;}
+.proj-footer{display:flex;justify-content:space-between;align-items:center;}
+.proj-school{font-size:.71rem;color:var(--muted);}
+.proj-cta{font-size:.74rem;color:var(--accent);font-weight:500;opacity:0;transition:opacity .2s;}
+.proj-card:hover .proj-cta{opacity:1;}
+
+/* ── SKILLS ── */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(225px,1fr));gap:13px;position:relative;z-index:1;}
+.skill-cat{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:17px;transition:border-color .2s;}
+.skill-cat:hover{border-color:var(--border2);}
+.skill-cat-header{display:flex;align-items:center;gap:9px;margin-bottom:13px;}
+.skill-cat-icon{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;background:var(--accent-d);flex-shrink:0;}
+.skill-cat h3{font-size:.72rem;font-weight:700;color:var(--accent);letter-spacing:.09em;text-transform:uppercase;}
+.skill-pills{display:flex;flex-wrap:wrap;gap:6px;}
+.skill-pill{background:rgba(255,255,255,.03);border:1px solid var(--border);color:var(--sub);padding:4px 10px;border-radius:4px;font-size:.76rem;transition:all .18s;}
+.skill-pill:hover{border-color:var(--border2);color:var(--text);}
+
+/* ── PUBLICATIONS ── */
+.pub-list{display:flex;flex-direction:column;gap:13px;position:relative;z-index:1;}
+.pub-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;display:flex;gap:16px;align-items:flex-start;cursor:pointer;transition:all .2s;}
+.pub-card:hover{border-color:var(--border2);transform:translateX(3px);}
+.pub-badge{min-width:76px;text-align:center;padding:5px 7px;border-radius:5px;font-size:.64rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;}
+.pub-article{background:var(--accent-d);color:var(--accent);border:1px solid rgba(79,142,247,.18);}
+.pub-white{background:rgba(99,102,241,.08);color:#9b99ff;border:1px solid rgba(99,102,241,.18);}
+.pub-info h3{font-size:.91rem;font-weight:600;color:var(--white);margin-bottom:4px;line-height:1.4;letter-spacing:-.01em;}
+.pub-meta{color:var(--muted);font-size:.76rem;margin-bottom:7px;}
+.pub-info p{color:var(--sub);font-size:.84rem;line-height:1.72;}
+.pub-link{color:var(--accent);font-size:.79rem;font-weight:500;margin-top:9px;display:inline-flex;align-items:center;gap:5px;}
+.pub-link:hover{text-decoration:underline;}
+
+/* ── CERTIFICATIONS ── */
+.cert-grid{display:flex;flex-wrap:wrap;gap:13px;position:relative;z-index:1;}
+.cert-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;display:flex;align-items:center;gap:14px;transition:border-color .2s;}
+.cert-card:hover{border-color:var(--border2);}
+.cert-icon-wrap{width:38px;height:38px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:var(--accent-d);flex-shrink:0;}
+.cert-name{font-size:.88rem;font-weight:600;color:var(--white);}
+.cert-issuer{font-size:.73rem;color:var(--muted);margin-top:2px;}
+
+/* ── CONTACT ── */
+#contact{text-align:center;}
+#contact .sec-rule{margin:0 auto 46px;}
+#contact .sec-desc{margin:0 auto 34px;}
+.contact-links{display:flex;justify-content:center;gap:11px;flex-wrap:wrap;}
+.contact-link{background:var(--card);border:1px solid var(--border);color:var(--sub);padding:12px 22px;border-radius:8px;font-size:.84rem;font-weight:500;transition:all .2s;display:flex;align-items:center;gap:9px;}
+.contact-link:hover{border-color:var(--accent);color:var(--white);}
+
+footer{text-align:center;padding:26px;border-top:1px solid var(--border);color:var(--muted);font-size:.77rem;}
+
+/* ── CIRCUIT TRACES (hero decoration) ── */
+.circuit-traces{position:absolute;inset:0;pointer-events:none;z-index:2;opacity:.18;}
+.circuit-traces path{stroke-dasharray:8 4;stroke-dashoffset:200;animation:trace-anim 8s linear infinite;}
+.circuit-traces path:nth-child(2){animation-delay:-3s;}
+.circuit-traces path:nth-child(3){animation-delay:-5.5s;}
+.circuit-traces path:nth-child(4){animation-delay:-1.5s;}
+.circuit-traces circle{animation:node-pulse 3s ease-in-out infinite;}
+.circuit-traces circle:nth-child(even){animation-delay:-1.5s;}
+@keyframes trace-anim{to{stroke-dashoffset:-200}}
+@keyframes node-pulse{0%,100%{opacity:.4}50%{opacity:1}}
+
+/* ── THREAT MAP (section background) ── */
+.threat-map-bg{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+
+/* ── FADE IN ── */
+.fi{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease;}
+.fi.vis{opacity:1;transform:translateY(0);}
+
+/* ── MODAL ── */
+.modal-overlay{position:fixed;inset:0;z-index:500;background:rgba(3,6,12,.82);backdrop-filter:blur(7px);display:flex;justify-content:flex-end;opacity:0;pointer-events:none;transition:opacity .25s;}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.modal-panel{width:min(660px,95vw);height:100vh;overflow-y:auto;background:var(--surface);border-left:1px solid var(--border);transform:translateX(100%);transition:transform .32s cubic-bezier(.16,1,.3,1);}
+.modal-overlay.open .modal-panel{transform:translateX(0);}
+.modal-topbar{position:sticky;top:0;background:var(--surface);border-bottom:1px solid var(--border);padding:15px 24px;display:flex;justify-content:space-between;align-items:center;z-index:10;}
+.modal-breadcrumb{font-size:.74rem;color:var(--muted);font-family:'JetBrains Mono',monospace;}
+.modal-close-btn{background:none;border:1px solid var(--border);color:var(--sub);width:30px;height:30px;border-radius:5px;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center;transition:all .18s;}
+.modal-close-btn:hover{border-color:var(--border2);color:var(--white);}
+.modal-body{padding:28px 30px 64px;}
+.modal-category{font-size:.69rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:7px;}
+.modal-title{font-size:1.28rem;font-weight:700;color:var(--white);line-height:1.3;letter-spacing:-.02em;margin-bottom:5px;}
+.modal-context{color:var(--muted);font-size:.79rem;margin-bottom:18px;}
+.modal-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:24px;}
+.modal-tag{background:var(--accent-d);border:1px solid rgba(79,142,247,.18);color:var(--accent);padding:3px 10px;border-radius:4px;font-size:.74rem;font-weight:500;}
+.modal-sec{margin-bottom:24px;}
+.modal-sec h4{font-size:.69rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sub);margin-bottom:10px;padding-bottom:7px;border-bottom:1px solid var(--border);}
+.modal-sec p{color:var(--sub);font-size:.87rem;line-height:1.8;}
+.modal-sec ul{list-style:none;}
+.modal-sec ul li{color:var(--sub);font-size:.86rem;margin-bottom:10px;padding-left:20px;position:relative;line-height:1.77;}
+.modal-sec ul li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:.8rem;}
+.modal-skill-row{display:flex;flex-wrap:wrap;gap:7px;}
+.modal-skill{background:rgba(99,102,241,.07);border:1px solid rgba(99,102,241,.15);color:#9b99ff;padding:3px 10px;border-radius:4px;font-size:.74rem;font-weight:500;}
+.modal-action{display:inline-flex;align-items:center;gap:7px;color:#fff;background:var(--accent);padding:10px 20px;border-radius:6px;font-size:.83rem;font-weight:600;margin-top:10px;transition:background .18s;}
+.modal-action:hover{background:#6ba3ff;}
+
+@media(max-width:860px){
+  .hero-inner{flex-direction:column-reverse;text-align:center;padding:0 6%;}
+  .btn-row{justify-content:center;}
+  .about-layout{grid-template-columns:1fr;}
+  section{padding:76px 5% 60px;}
+  .watermark-icon{display:none;}
+  .hero-right{align-items:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Hrishab<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ══ HERO ══════════════════════════════════════════════════════════════════ -->
+<section id="hero">
+
+  <!-- Background network illustration -->
+  <div class="hero-bg-illustration">
+    <svg width="100%" height="100%" viewBox="0 0 1400 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style="opacity:.12">
+      <!-- Connection lines -->
+      <line x1="700" y1="120" x2="300" y2="280" stroke="#4f8ef7" stroke-width="1"/>
+      <line x1="700" y1="120" x2="1100" y2="280" stroke="#4f8ef7" stroke-width="1"/>
+      <line x1="300" y1="280" x2="150" y2="480" stroke="#4f8ef7" stroke-width="1"/>
+      <line x1="300" y1="280" x2="500" y2="520" stroke="#4f8ef7" stroke-width="1"/>
+      <line x1="1100" y1="280" x2="1250" y2="480" stroke="#4f8ef7" stroke-width="1"/>
+      <line x1="1100" y1="280" x2="900" y2="520" stroke="#4f8ef7" stroke-width="1"/>
+      <line x1="500" y1="520" x2="700" y2="650" stroke="#6366f1" stroke-width="1"/>
+      <line x1="900" y1="520" x2="700" y2="650" stroke="#6366f1" stroke-width="1"/>
+      <line x1="150" y1="480" x2="50" y2="620" stroke="#4f8ef7" stroke-width=".7"/>
+      <line x1="150" y1="480" x2="220" y2="650" stroke="#4f8ef7" stroke-width=".7"/>
+      <line x1="1250" y1="480" x2="1350" y2="620" stroke="#4f8ef7" stroke-width=".7"/>
+      <line x1="1250" y1="480" x2="1180" y2="650" stroke="#4f8ef7" stroke-width=".7"/>
+      <!-- Animated packet flows -->
+      <circle r="4" fill="#4f8ef7">
+        <animateMotion dur="4s" repeatCount="indefinite" path="M700,120 L300,280 L150,480"/>
+      </circle>
+      <circle r="4" fill="#6366f1">
+        <animateMotion dur="5s" repeatCount="indefinite" begin="1.5s" path="M700,120 L1100,280 L900,520 L700,650"/>
+      </circle>
+      <circle r="3" fill="#ef4444">
+        <animateMotion dur="3.5s" repeatCount="indefinite" begin="0.8s" path="M50,620 L150,480 L300,280"/>
+      </circle>
+      <circle r="3" fill="#10b981">
+        <animateMotion dur="6s" repeatCount="indefinite" begin="2s" path="M300,280 L500,520 L700,650"/>
+      </circle>
+      <!-- Nodes: CLOUD (top center) -->
+      <g transform="translate(700,120)">
+        <rect x="-52" y="-22" width="104" height="44" rx="8" fill="#0f1828" stroke="#4f8ef7" stroke-width="1.5"/>
+        <text x="-28" y="-4" font-size="11" fill="#4f8ef7" font-family="JetBrains Mono,monospace">☁</text>
+        <text x="-10" y="-4" font-size="10" fill="#7e97b8" font-family="JetBrains Mono,monospace">Cloud</text>
+        <text x="-28" y="10" font-size="9" fill="#3a526a" font-family="JetBrains Mono,monospace">AWS / Azure</text>
+        <circle cx="-38" cy="-10" r="4" fill="#10b981"/>
+      </g>
+      <!-- FIREWALL (left) -->
+      <g transform="translate(300,280)">
+        <rect x="-52" y="-22" width="104" height="44" rx="8" fill="#0f1828" stroke="#4f8ef7" stroke-width="1.5"/>
+        <text x="-42" y="-4" font-size="10" fill="#7e97b8" font-family="JetBrains Mono,monospace">⊞ Firewall</text>
+        <text x="-42" y="10" font-size="9" fill="#3a526a" font-family="JetBrains Mono,monospace">NIST / ISO 27001</text>
+        <circle cx="-44" cy="-12" r="4" fill="#10b981"/>
+      </g>
+      <!-- IDS/IPS (right) -->
+      <g transform="translate(1100,280)">
+        <rect x="-52" y="-22" width="104" height="44" rx="8" fill="#0f1828" stroke="#6366f1" stroke-width="1.5"/>
+        <text x="-42" y="-4" font-size="10" fill="#9b99ff" font-family="JetBrains Mono,monospace">⚡ IDS/IPS</text>
+        <text x="-42" y="10" font-size="9" fill="#3a526a" font-family="JetBrains Mono,monospace">MITRE ATT&amp;CK</text>
+        <circle cx="-44" cy="-12" r="4" fill="#10b981"/>
+      </g>
+      <!-- SERVER (bottom-left) -->
+      <g transform="translate(150,480)">
+        <rect x="-48" y="-20" width="96" height="40" rx="8" fill="#0f1828" stroke="#4f8ef7" stroke-width="1"/>
+        <text x="-38" y="-3" font-size="10" fill="#7e97b8" font-family="JetBrains Mono,monospace">▣ Server</text>
+        <text x="-38" y="10" font-size="9" fill="#3a526a" font-family="JetBrains Mono,monospace">TLS 1.3 / SLAP</text>
+        <circle cx="-40" cy="-10" r="4" fill="#10b981"/>
+      </g>
+      <!-- ENDPOINT cluster -->
+      <g transform="translate(500,520)">
+        <rect x="-44" y="-18" width="88" height="36" rx="8" fill="#0f1828" stroke="#4f8ef7" stroke-width="1"/>
+        <text x="-34" y="-2" font-size="10" fill="#7e97b8" font-family="JetBrains Mono,monospace">○ Endpoint</text>
+        <text x="-34" y="10" font-size="9" fill="#3a526a" font-family="JetBrains Mono,monospace">CVSS Scored</text>
+      </g>
+      <g transform="translate(900,520)">
+        <rect x="-44" y="-18" width="88" height="36" rx="8" fill="#0f1828" stroke="#4f8ef7" stroke-width="1"/>
+        <text x="-34" y="-2" font-size="10" fill="#7e97b8" font-family="JetBrains Mono,monospace">○ Endpoint</text>
+        <text x="-34" y="10" font-size="9" fill="#3a526a" font-family="JetBrains Mono,monospace">Monitored</text>
+      </g>
+      <!-- ATTACKER (threat actor, red) -->
+      <g transform="translate(1250,480)">
+        <rect x="-50" y="-20" width="100" height="40" rx="8" fill="#120808" stroke="#ef4444" stroke-width="1.5"/>
+        <text x="-40" y="-3" font-size="10" fill="#ef4444" font-family="JetBrains Mono,monospace">✗ Threat Actor</text>
+        <text x="-40" y="10" font-size="9" fill="#7a2020" font-family="JetBrains Mono,monospace">Conti / Lateral Mvt</text>
+        <circle cx="-42" cy="-10" r="4" fill="#ef4444">
+          <animate attributeName="opacity" values="1;0.2;1" dur="1.5s" repeatCount="indefinite"/>
+        </circle>
+      </g>
+      <!-- SIEM (bottom center) -->
+      <g transform="translate(700,650)">
+        <rect x="-50" y="-20" width="100" height="40" rx="8" fill="#0d1020" stroke="#6366f1" stroke-width="1.5"/>
+        <text x="-40" y="-3" font-size="10" fill="#9b99ff" font-family="JetBrains Mono,monospace">◈ SIEM/ELK</text>
+        <text x="-40" y="10" font-size="9" fill="#3a526a" font-family="JetBrains Mono,monospace">Log Aggregation</text>
+        <circle cx="-42" cy="-10" r="4" fill="#6366f1"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Animated circuit traces -->
+  <svg class="circuit-traces" viewBox="0 0 1400 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 0 200 H 80 V 150 H 160 V 220 H 240" stroke="#4f8ef7" stroke-width="1" fill="none"/>
+    <path d="M 1400 350 H 1300 V 280 H 1200 V 380 H 1120" stroke="#6366f1" stroke-width="1" fill="none"/>
+    <path d="M 100 800 V 700 H 200 V 620 H 300 V 700 H 420" stroke="#4f8ef7" stroke-width=".8" fill="none"/>
+    <path d="M 1300 800 V 680 H 1200 V 600 H 1100" stroke="#6366f1" stroke-width=".8" fill="none"/>
+    <circle cx="80" cy="200" r="3" fill="#4f8ef7"/>
+    <circle cx="160" cy="150" r="3" fill="#4f8ef7"/>
+    <circle cx="240" cy="220" r="3" fill="#4f8ef7"/>
+    <circle cx="1300" cy="350" r="3" fill="#6366f1"/>
+    <circle cx="1200" cy="280" r="3" fill="#6366f1"/>
+  </svg>
+
+  <!-- Particle canvas -->
+  <canvas id="cv-net"></canvas>
+
+  <div class="hero-inner">
+    <div class="hero-text fi">
+      <p class="hero-eyebrow"><span class="hero-eyebrow-dot"></span>Cybersecurity Professional</p>
+      <h1 class="hero-name">Hrishab<br/><em>Hosmani</em></h1>
+      <p class="hero-role">MS Computer Security &amp; Privacy — Drexel University</p>
+      <p class="hero-school">Philadelphia, PA &nbsp;·&nbsp; Jun 2026 Graduate</p>
+      <p class="typing-line"><span id="typing"></span><span class="cursor"></span></p>
+      <p class="hero-desc">
+        MS graduate with hands-on experience in <strong>network security</strong>, vulnerability management, and secure code modernization.
+        Designed protocols over TLS 1.3, analyzed 191k+ network flows with graph theory, and published three research pieces live in production.
+        I build things to understand threats.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="#projects">View Projects</a>
+        <a class="btn btn-ghost" href="#contact">Get in Touch</a>
+      </div>
+    </div>
+
+    <!-- Photo + Security Profile Card -->
+    <div class="hero-right fi">
+      <div class="photo-wrap">
+        <div class="photo-border"></div>
+        <div class="photo-mask"></div>
+        <div class="photo-scan"></div>
+        <img src="photo.jpg" alt="Hrishab Hosmani"/>
+      </div>
+      <!-- Security Profile Card -->
+      <div class="sec-profile-card">
+        <div class="spc-header">
+          <div class="spc-dot"></div>
+          <span class="spc-title">Security Profile</span>
+        </div>
+        <div class="spc-row"><span class="spc-label">Network Flows</span><span class="spc-val">191,847</span></div>
+        <div class="spc-row"><span class="spc-label">ATT&amp;CK Techniques</span><span class="spc-val">14 Mapped</span></div>
+        <div class="spc-row"><span class="spc-label">Publications</span><span class="spc-val green">3 Live ✓</span></div>
+        <div class="spc-row"><span class="spc-label">Encryption</span><span class="spc-val green">TLS 1.3 ✓</span></div>
+        <div class="spc-row"><span class="spc-label">Threat Actor</span><span class="spc-val red">Conti — Mapped</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ABOUT ══════════════════════════════════════════════════════════════════ -->
+<section id="about">
+  <!-- Shield watermark -->
+  <div class="watermark-icon">
+    <svg viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M100 10 L180 45 L180 110 C180 155 145 190 100 210 C55 190 20 155 20 110 L20 45 Z" stroke="#4f8ef7" stroke-width="3" fill="none"/>
+      <path d="M100 35 L155 60 L155 108 C155 140 130 165 100 178 C70 165 45 140 45 108 L45 60 Z" stroke="#4f8ef7" stroke-width="1.5" fill="none" opacity=".5"/>
+      <path d="M75 105 L92 122 L128 86" stroke="#4f8ef7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+  <p class="sec-eyebrow fi">About</p>
+  <h2 class="sec-title fi">Who I Am</h2>
+  <div class="sec-rule fi"></div>
+  <div class="about-layout fi">
+    <div class="about-text">
+      <p>Most security candidates study threats. <strong>I build things to understand them.</strong></p>
+      <p>I hold an <strong>MS in Computer Security &amp; Privacy from Drexel University</strong>. Over the past two years, I've gone well beyond coursework — designing a custom log protocol over TLS 1.3, implementing Bitcoin's ECDSA signature scheme from first principles, exploiting buffer overflows in controlled environments, and analyzing 191,000+ network flows using graph theory to surface lateral movement paths.</p>
+      <p>At <strong>VisioneerIT</strong>, I used Aikido Security to identify and remediate vulnerabilities across legacy codebases and gained hands-on exposure to Heimdal for endpoint and network protection. I've also <strong>published two technical articles and a white paper</strong> — live on a company's website, read by their clients.</p>
+      <p>Network security is where I am headed — from packet-level analysis and protocol design to detecting lateral movement and hardening infrastructure at scale.</p>
+      <div class="about-chips">
+        <span class="chip">Network Security</span>
+        <span class="chip">MITRE ATT&amp;CK</span>
+        <span class="chip">NIST 800-61</span>
+        <span class="chip">ISO 27001</span>
+        <span class="chip">TLS 1.3</span>
+        <span class="chip">Published Researcher</span>
+      </div>
+    </div>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-n" data-count="2">0</div><div class="stat-l">Internships</div></div>
+      <div class="stat-card"><div class="stat-n" data-count="12">0</div><div class="stat-l">Projects</div></div>
+      <div class="stat-card"><div class="stat-n" data-count="3">0</div><div class="stat-l">Publications</div></div>
+      <div class="stat-card"><div class="stat-n">MS</div><div class="stat-l">Drexel · Jun 2026</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EXPERIENCE ══════════════════════════════════════════════════════════════ -->
+<section id="experience">
+  <!-- Lock watermark -->
+  <div class="watermark-icon">
+    <svg viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="20" y="90" width="120" height="100" rx="12" stroke="#4f8ef7" stroke-width="3"/>
+      <path d="M50 90 V60 C50 38 110 38 110 60 V90" stroke="#4f8ef7" stroke-width="3" fill="none"/>
+      <circle cx="80" cy="140" r="14" stroke="#4f8ef7" stroke-width="2.5"/>
+      <line x1="80" y1="154" x2="80" y2="168" stroke="#4f8ef7" stroke-width="2.5"/>
+    </svg>
+  </div>
+  <p class="sec-eyebrow fi">Work History</p>
+  <h2 class="sec-title fi">Experience</h2>
+  <div class="sec-rule fi"></div>
+  <div class="tl fi">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-header">
+        <div class="tl-company">VisioneerIT</div>
+        <div class="tl-role">Cybersecurity Intern — Network Security Focus</div>
+        <div class="tl-date">Sep 2025 – Mar 2026 &nbsp;·&nbsp; Baltimore, MD (Remote)</div>
+      </div>
+      <ul class="tl-bullets">
+        <li>Used Aikido Security for automated vulnerability scanning and identification of security risks across legacy codebases, supporting secure code modernization efforts.</li>
+        <li>Gained hands-on exposure to Heimdal for endpoint and network protection across client environments.</li>
+        <li>Supported incident response engagements aligned to NIST 800-61, documenting investigation steps, evidence collection, and containment actions.</li>
+        <li>Authored and published two technical articles and a white paper on secure code modernization, live on the VisioneerIT website.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROJECTS ════════════════════════════════════════════════════════════════ -->
+<section id="projects">
+  <!-- Network watermark -->
+  <div class="watermark-icon">
+    <svg viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="110" cy="40" r="20" stroke="#4f8ef7" stroke-width="2.5"/>
+      <circle cx="40" cy="140" r="20" stroke="#4f8ef7" stroke-width="2.5"/>
+      <circle cx="180" cy="140" r="20" stroke="#4f8ef7" stroke-width="2.5"/>
+      <circle cx="110" cy="200" r="20" stroke="#6366f1" stroke-width="2.5"/>
+      <line x1="110" y1="60" x2="40" y2="120" stroke="#4f8ef7" stroke-width="1.5"/>
+      <line x1="110" y1="60" x2="180" y2="120" stroke="#4f8ef7" stroke-width="1.5"/>
+      <line x1="40" y1="160" x2="110" y2="180" stroke="#4f8ef7" stroke-width="1.5"/>
+      <line x1="180" y1="160" x2="110" y2="180" stroke="#4f8ef7" stroke-width="1.5"/>
+    </svg>
+  </div>
+  <p class="sec-eyebrow fi">Academic &amp; Professional Work</p>
+  <h2 class="sec-title fi">Projects</h2>
+  <div class="sec-rule fi"></div>
+  <p class="sec-desc fi">Click any project to read the full technical breakdown — methodology, approach, and key findings.</p>
+  <div class="projects-grid">
+
+    <!-- SVG icon colors: security=#4f8ef7, network=#6366f1, crypto=#10b981, ml=#f59e0b, db=#ec4899 -->
+    <div class="proj-card fi" onclick="openProject('graph-net')">
+      <div class="proj-card-accent"></div>
+      <div class="proj-card-top">
+        <div class="proj-card-icon" style="background:rgba(79,142,247,.1)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4f8ef7" stroke-width="2"><circle cx="12" cy="5" r="3"/><circle cx="5" cy="19" r="3"/><circle cx="19" cy="19" r="3"/><line x1="12" y1="8" x2="5" y2="16"/><line x1="12" y1="8" x2="19" y2="16"/></svg>
+        </div>
+        <div class="proj-card-meta">
+          <div class="proj-num">01 — DREXEL UNIVERSITY</div>
+          <h3>Graph-Based Network Traffic Analysis</h3>
+        </div>
+      </div>
+      <p>Applied Social Network Analysis to 191,000+ network flows from CICIDS2017, surfacing lateral movement paths and critical communication hubs invisible to signature-based detection.</p>
+      <div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">NetworkX</span><span class="proj-tag">Graph Theory</span><span class="proj-tag">CICIDS2017</span></div>
+      <div class="proj-footer"><span class="proj-school">Security Research</span><span class="proj-cta">Read More →</span></div>
+    </div>
+
+    <div class="proj-card fi" onclick="openProject('traffic-db')">
+      <div class="proj-card-accent"></div>
+      <div class="proj-card-top">
+        <div class="proj-card-icon" style="background:rgba(236,72,153,.1)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/></svg>
+        </div>
+        <div class="proj-card-meta">
+          <div class="proj-num">02 — DREXEL · INFO605</div>
+          <h3>Network Traffic Analyzer &amp; Security Monitoring DB</h3>
+        </div>
+      </div>
+      <p>Normalized relational database from 191k+ CICIDS2017 flow records with automated severity-based alert generation and SQL-driven attack detection analytics.</p>
+      <div class="proj-tags"><span class="proj-tag">MySQL</span><span class="proj-tag">Oracle</span><span class="proj-tag">SQL</span><span class="proj-tag">3NF Design</span></div>
+      <div class="proj-footer"><span class="proj-school">Database Systems</span><span class="proj-cta">Read More →</span></div>
+    </div>
+
+    <div class="proj-card fi" onclick="openProject('slap')">
+      <div class="proj-card-accent"></div>
+      <div class="proj-card-top">
+        <div class="proj-card-icon" style="background:rgba(99,102,241,.1)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="proj-card-meta">
+          <div class="proj-num">03 — DREXEL · CS544</div>
+          <h3>Secure Log Aggregation Protocol (SLAP)</h3>
+        </div>
+      </div>
+      <p>Custom stateful protocol over QUIC with TLS 1.3, mutual auth, HMAC integrity, DFA session management. Integrated with ELK Stack for SIEM correlation.</p>
+      <div class="proj-tags"><span class="proj-tag">QUIC/UDP</span><span class="proj-tag">TLS 1.3</span><span class="proj-tag">Protocol Design</span><span class="proj-tag">ELK</span></div>
+      <div class="proj-footer"><span class="proj-school">Computer Networks</span><span class="proj-cta">Read More →</span></div>
+    </div>
+
+    <div class="proj-card fi" onclick="openProject('netsec-labs')">
+      <div class="proj-card-accent"></div>
+      <div class="proj-card-top">
+        <div class="proj-card-icon" style="background:rgba(79,142,247,.1)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4f8ef7" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><polyline points="6 9 10 13 14 9 18 13"/></svg>
+        </div>
+        <div class="proj-card-meta">
+          <div class="proj-num">04 — DREXEL · SE578</div>
+          <h3>Network Security Labs — Packet Analysis &amp; Transport Attacks</h3>
+        </div>
+      </div>
+      <p>ARP cache poisoning, SYN flooding, and TCP session hijacking in a 3-VM controlled lab. Validated countermeasures including SYN cookies and dynamic ARP inspection.</p>
+      <div class="proj-tags"><span class="proj-tag">TCP/IP</span><span class="proj-tag">ARP</span><span class="proj-tag">Scapy</span><span class="proj-tag">Wireshark</span></div>
+      <div class="proj-footer"><span class="proj-school">Network Security</span><span class="proj-cta">Read More →</span></div>
+    </div>
+
+    <div class="proj-card fi" onclick="openProject('syssec-labs')">
+      <div class="proj-card-accent"></div>
+      <div class="proj-card-top">
+        <div class="proj-card-icon" style="background:rgba(239,68,68,.1)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+        </div>
+        <div class="proj-card-meta">
+          <div class="proj-num">05 — DREXEL · SE578</div>
+          <h3>Systems Security — Buffer Overflow &amp; Race Conditions</h3>
+        </div>
+      </div>
+      <p>Exploited 32-bit Linux stack buffer overflows via shellcode injection, demonstrated TOCTOU race conditions in Set-UID programs, and critically reviewed Tor's design.</p>
+      <div class="proj-tags"><span class="proj-tag">Linux</span><span class="proj-tag">Shellcode</span><span class="proj-tag">ASLR</span><span class="proj-tag">Set-UID</span></div>
+      <div class="proj-footer"><span class="proj-school">Systems Security</span><span class="proj-cta">Read More →</span></div>
+    </div>
+
+    <div class="proj-card fi" onclick="openProject('crypto')">
+      <div class="proj-card-accent"></div>
+      <div class="proj-card-top">
+        <div class="proj-card-icon" style="background:rgba(16,185,129,.1)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        </div>
+        <div class="proj-card-meta">
+          <div class="proj-num">06 — DREXEL · CS523 / CS590</div>
+          <h3>Blind RSA Signatures &amp; Bitcoin's ECDSA</h3>
+        </div>
+      </div>
+      <p>Implemented blind RSA and Bitcoin's ECDSA from first principles in Python — scalar multiplication, key generation, signing and verification without library abstractions.</p>
+      <div class="proj-tags"><span class="proj-tag">RSA</span><span class="proj-tag">ECDSA</span><span class="proj-tag">Python</span><span class="proj-tag">Elliptic Curves</span></div>
+      <div class="proj-footer"><span class="proj-school">Cryptography</span><span class="proj-cta">Read More →</span></div>
+    </div>
+
+    <div class="proj-card fi" onclick="openProject('conti')">
+      <div class="proj-card-accent"></div>
+      <div class="proj-card-top">
+        <div class="proj-card-icon" style="background:rgba(239,68,68,.1)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <div class="proj-card-meta">
+          <div class="proj-num">07 — DREXEL · INFO710</div>
+          <h3>Conti Ransomware Threat Analysis &amp; Detection Engineering</h3>
+        </div>
+      </div>
+      <p>Mapped 14 Conti ransomware behaviors to MITRE ATT&CK techniques. Designed EDR and segmentation controls detecting lateral movement at 3 of 5 kill-chain stages.</p>
+      <div class="proj-tags"><span class="proj-tag">MITRE ATT&amp;CK</span><span class="proj-tag">Threat Intel</span><span class="proj-tag">EDR</span><span class="proj-tag">Incident Response</span></div>
+      <div class="proj-footer"><span class="proj-school">Threat Intelligence</span><span class="proj-cta">Read More →</span></div>
+    </div>
+
+    <div class="proj-card fi" onclick="openProject('cicd')">
+      <div class="proj-card-accent"></div>
+      <div class="proj-card-top">
+        <div class="proj-card-icon" style="background:rgba(99,102,241,.1)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <div class="proj-card-meta">
+          <div class="proj-num">08 — VISIONEERIT / DREXEL</div>
+          <h3>Secure CI/CD Pipeline</h3>
+        </div>
+      </div>
+      <p>Hardened GitHub Actions pipeline with SAST, DAST, SCA, and container scanning. HashiCorp Vault for secrets. Least-privilege IAM. CVSS ≥7.0 gates block deployment.</p>
+      <div class="proj-tags"><span class="proj-tag">GitHub Actions</span><span class="proj-tag">SAST/DAST/SCA</span><span class="proj-tag">Vault</span><span class="proj-tag">DevSecOps</span></div>
+      <div class="proj-footer"><span class="proj-school">DevSecOps</span><span class="proj-cta">Read More →</span></div>
+    </div>
+
+    <div class="proj-card fi" onclick="openProject('cloud')">
+      <div class="proj-card-accent"></div>
+      <div class="proj-card-top">
+        <div class="proj-card-icon" style="background:rgba(79,142,247,.1)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4f8ef7" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="proj-card-meta">
+          <div class="proj-num">09 — DREXEL · CT605</div>
+          <h3>Cloud Computing Security Portfolio</h3>
+        </div>
+      </div>
+      <p>IaaS/PaaS/SaaS security from a CISO perspective. Analyzed SDN/NFV vulnerabilities at Google and AT&T. Applied design to enterprise SDDC migration scenarios.</p>
+      <div class="proj-tags"><span class="proj-tag">Cloud Security</span><span class="proj-tag">SDN/NFV</span><span class="proj-tag">AWS</span><span class="proj-tag">Risk Management</span></div>
+      <div class="proj-footer"><span class="proj-school">Cloud Technology</span><span class="proj-cta">Read More →</span></div>
+    </div>
+
+    <div class="proj-card fi" onclick="openProject('brain')">
+      <div class="proj-card-accent"></div>
+      <div class="proj-card-top">
+        <div class="proj-card-icon" style="background:rgba(245,158,11,.1)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+        <div class="proj-card-meta">
+          <div class="proj-num">10 — DREXEL UNIVERSITY</div>
+          <h3>Brain Tumor Classification using Deep Learning</h3>
+        </div>
+      </div>
+      <p>CNN-based MRI classifier with data augmentation outperforming SVM and Random Forest on 253 MRI images. Demonstrates automatic feature extraction advantage over handcrafted features.</p>
+      <div class="proj-tags"><span class="proj-tag">CNN</span><span class="proj-tag">Deep Learning</span><span class="proj-tag">Computer Vision</span><span class="proj-tag">scikit-learn</span></div>
+      <div class="proj-footer"><span class="proj-school">Machine Learning</span><span class="proj-cta">Read More →</span></div>
+    </div>
+
+    <div class="proj-card fi" onclick="openProject('gmm')">
+      <div class="proj-card-accent"></div>
+      <div class="proj-card-top">
+        <div class="proj-card-icon" style="background:rgba(245,158,11,.1)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><circle cx="8" cy="8" r="4"/><circle cx="16" cy="14" r="4"/><circle cx="8" cy="17" r="3"/></svg>
+        </div>
+        <div class="proj-card-meta">
+          <div class="proj-num">11 — GRIET · AUG 2023 – JUN 2024</div>
+          <h3>Customer Segmentation using Gaussian Mixture Model</h3>
+        </div>
+      </div>
+      <p>Python GMM pipeline segmenting customers into behavioral clusters with probabilistic covariance modeling, outperforming K-Means on non-spherical distributions.</p>
+      <div class="proj-tags"><span class="proj-tag">GMM</span><span class="proj-tag">Python</span><span class="proj-tag">Probabilistic Modeling</span><span class="proj-tag">scikit-learn</span></div>
+      <div class="proj-footer"><span class="proj-school">Final Year Project</span><span class="proj-cta">Read More →</span></div>
+    </div>
+
+    <div class="proj-card fi" onclick="openProject('drawing')">
+      <div class="proj-card-accent"></div>
+      <div class="proj-card-top">
+        <div class="proj-card-icon" style="background:rgba(16,185,129,.1)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+        </div>
+        <div class="proj-card-meta">
+          <div class="proj-num">12 — GRIET · JAN 2023 – JUL 2023</div>
+          <h3>Virtual Drawing using OpenCV &amp; MediaPipe</h3>
+        </div>
+      </div>
+      <p>Real-time Python application tracking hand gestures via webcam using MediaPipe hand landmark detection and OpenCV for freehand virtual drawing on live video.</p>
+      <div class="proj-tags"><span class="proj-tag">OpenCV</span><span class="proj-tag">MediaPipe</span><span class="proj-tag">Python</span><span class="proj-tag">Real-Time CV</span></div>
+      <div class="proj-footer"><span class="proj-school">Computer Vision</span><span class="proj-cta">Read More →</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ SKILLS ══════════════════════════════════════════════════════════════════ -->
+<section id="skills">
+  <div class="watermark-icon">
+    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="100" cy="100" r="80" stroke="#4f8ef7" stroke-width="2"/>
+      <circle cx="100" cy="100" r="55" stroke="#4f8ef7" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <circle cx="100" cy="100" r="30" stroke="#6366f1" stroke-width="2"/>
+      <circle cx="100" cy="20" r="8" fill="#4f8ef7" opacity=".6"/>
+      <circle cx="100" cy="180" r="8" fill="#4f8ef7" opacity=".6"/>
+      <circle cx="20" cy="100" r="8" fill="#4f8ef7" opacity=".6"/>
+      <circle cx="180" cy="100" r="8" fill="#4f8ef7" opacity=".6"/>
+    </svg>
+  </div>
+  <p class="sec-eyebrow fi">Technical Expertise</p>
+  <h2 class="sec-title fi">Skills</h2>
+  <div class="sec-rule fi"></div>
+  <div class="skills-grid">
+    <div class="skill-cat fi">
+      <div class="skill-cat-header">
+        <div class="skill-cat-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4f8ef7" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Security Tools</h3>
+      </div>
+      <div class="skill-pills"><span class="skill-pill">Aikido Security</span><span class="skill-pill">Heimdal</span><span class="skill-pill">Wireshark</span><span class="skill-pill">Scapy</span><span class="skill-pill">Metasploit</span><span class="skill-pill">Burp Suite</span><span class="skill-pill">Nmap</span><span class="skill-pill">OpenVAS</span></div>
+    </div>
+    <div class="skill-cat fi">
+      <div class="skill-cat-header">
+        <div class="skill-cat-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4f8ef7" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="6 9 10 13 14 9 18 13"/></svg></div>
+        <h3>Network Security</h3>
+      </div>
+      <div class="skill-pills"><span class="skill-pill">TCP/IP</span><span class="skill-pill">ARP</span><span class="skill-pill">Packet Analysis</span><span class="skill-pill">Protocol Design</span><span class="skill-pill">Firewalls</span><span class="skill-pill">VPNs</span><span class="skill-pill">IDS/IPS</span></div>
+    </div>
+    <div class="skill-cat fi">
+      <div class="skill-cat-header">
+        <div class="skill-cat-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4f8ef7" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg></div>
+        <h3>Security Operations</h3>
+      </div>
+      <div class="skill-pills"><span class="skill-pill">MITRE ATT&amp;CK</span><span class="skill-pill">Incident Response</span><span class="skill-pill">Alert Triage</span><span class="skill-pill">Threat Detection</span><span class="skill-pill">Runbook Dev</span></div>
+    </div>
+    <div class="skill-cat fi">
+      <div class="skill-cat-header">
+        <div class="skill-cat-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4f8ef7" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <h3>Frameworks</h3>
+      </div>
+      <div class="skill-pills"><span class="skill-pill">NIST 800-61</span><span class="skill-pill">NIST CSF</span><span class="skill-pill">ISO 27001</span><span class="skill-pill">CVSS</span><span class="skill-pill">NIST 800-53</span></div>
+    </div>
+    <div class="skill-cat fi">
+      <div class="skill-cat-header">
+        <div class="skill-cat-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4f8ef7" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <h3>Cloud &amp; DevSecOps</h3>
+      </div>
+      <div class="skill-pills"><span class="skill-pill">AWS</span><span class="skill-pill">GitHub Actions</span><span class="skill-pill">CI/CD Security</span><span class="skill-pill">SAST/DAST/SCA</span><span class="skill-pill">Docker</span></div>
+    </div>
+    <div class="skill-cat fi">
+      <div class="skill-cat-header">
+        <div class="skill-cat-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+        <h3>Cryptography</h3>
+      </div>
+      <div class="skill-pills"><span class="skill-pill">RSA</span><span class="skill-pill">ECDSA</span><span class="skill-pill">TLS 1.3</span><span class="skill-pill">HMAC</span><span class="skill-pill">Digital Signatures</span></div>
+    </div>
+    <div class="skill-cat fi">
+      <div class="skill-cat-header">
+        <div class="skill-cat-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <h3>Programming</h3>
+      </div>
+      <div class="skill-pills"><span class="skill-pill">Python</span><span class="skill-pill">Bash</span><span class="skill-pill">SQL</span><span class="skill-pill">Java</span></div>
+    </div>
+    <div class="skill-cat fi">
+      <div class="skill-cat-header">
+        <div class="skill-cat-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83"/></svg></div>
+        <h3>ML &amp; Data</h3>
+      </div>
+      <div class="skill-pills"><span class="skill-pill">CNN</span><span class="skill-pill">GMM</span><span class="skill-pill">NetworkX</span><span class="skill-pill">OpenCV</span><span class="skill-pill">MediaPipe</span><span class="skill-pill">scikit-learn</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PUBLICATIONS ════════════════════════════════════════════════════════════ -->
+<section id="publications">
+  <p class="sec-eyebrow fi">Published Work</p>
+  <h2 class="sec-title fi">Publications</h2>
+  <div class="sec-rule fi"></div>
+  <div class="pub-list">
+    <div class="pub-card fi" onclick="openPub('aikido')">
+      <div class="pub-badge pub-article">Article</div>
+      <div class="pub-info">
+        <h3>Aikido: Automated Security for Code Modernization</h3>
+        <div class="pub-meta">VisioneerIT &nbsp;·&nbsp; December 16, 2025</div>
+        <p>How automated security platforms like Aikido transform legacy code modernization through real-time vulnerability detection, dependency upgrade guidance, secret scanning, and security header enforcement.</p>
+        <a class="pub-link" href="https://www.visioneerit.com/articles/aikido-code-modernization" target="_blank" onclick="event.stopPropagation()">Read Article ↗</a>
+      </div>
+    </div>
+    <div class="pub-card fi" onclick="openPub('modern-defense')">
+      <div class="pub-badge pub-article">Article</div>
+      <div class="pub-info">
+        <h3>Modern Defense: Security-Driven Code Modernization</h3>
+        <div class="pub-meta">VisioneerIT &nbsp;·&nbsp; December 16, 2025</div>
+        <p>The philosophy of security-driven modernization using Aikido, Swimm, and Heimdal — framing continuous secure modernization as a discipline built through iterative improvement rather than a one-time migration event.</p>
+        <a class="pub-link" href="https://www.visioneerit.com/articles/modern-defense-security-driven-code-modernization" target="_blank" onclick="event.stopPropagation()">Read Article ↗</a>
+      </div>
+    </div>
+    <div class="pub-card fi" onclick="openPub('cmaas')">
+      <div class="pub-badge pub-white">White Paper</div>
+      <div class="pub-info">
+        <h3>Code Modernization as a Service (CMaaS): Modernize Legacy Systems Securely</h3>
+        <div class="pub-meta">VisioneerIT &nbsp;·&nbsp; 2025</div>
+        <p>Comprehensive methodology covering legacy assessment, incremental refactoring, security-gated modernization phases, and compliance alignment to ISO 27001 and NIST CSF.</p>
+        <a class="pub-link" href="https://www.visioneerit.com/services/code-modernization" target="_blank" onclick="event.stopPropagation()">Read White Paper ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CERTIFICATIONS ══════════════════════════════════════════════════════════ -->
+<section id="certifications">
+  <p class="sec-eyebrow fi">Credentials</p>
+  <h2 class="sec-title fi">Certifications</h2>
+  <div class="sec-rule fi"></div>
+  <div class="cert-grid fi">
+    <div class="cert-card">
+      <div class="cert-icon-wrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4f8ef7" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div><div class="cert-name">Fundamentals of SOC</div><div class="cert-issuer">Palo Alto Networks</div></div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon-wrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4f8ef7" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="6 9 10 13 14 9 18 13"/></svg></div>
+      <div><div class="cert-name">Cybersecurity Essentials</div><div class="cert-issuer">Cisco</div></div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon-wrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4f8ef7" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg></div>
+      <div><div class="cert-name">Packet Tracer</div><div class="cert-issuer">Cisco</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══════════════════════════════════════════════════════════════════ -->
+<section id="contact">
+  <p class="sec-eyebrow fi">Get in Touch</p>
+  <h2 class="sec-title fi">Contact</h2>
+  <div class="sec-rule fi"></div>
+  <p class="sec-desc fi">Open to Network Security, SOC Analyst, and Security Engineering roles. I would be glad to connect.</p>
+  <div class="contact-links fi">
+    <a class="contact-link" href="mailto:hrishabpatil02@gmail.com">hrishabpatil02@gmail.com</a>
+    <a class="contact-link" href="https://www.linkedin.com/in/hrishab-hosmani-334469208" target="_blank">LinkedIn</a>
+  </div>
+</section>
+
+<footer><p>© 2026 Hrishab Hosmani &nbsp;·&nbsp; Philadelphia, PA</p></footer>
+
+<!-- ══ MODAL ════════════════════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="modal" onclick="handleModalBg(event)">
+  <div class="modal-panel" id="modal-panel">
+    <div class="modal-topbar">
+      <span class="modal-breadcrumb" id="modal-breadcrumb">Projects</span>
+      <button class="modal-close-btn" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+// ── PROJECT / PUB DATA ─────────────────────────────────────────────────────────
+const PROJECTS = {
+  'graph-net':{cat:'Security Research — Drexel University',title:'Graph-Based Network Traffic Analysis',context:'Graduate coursework applying graph theory to real-world security datasets',tags:['Python','NetworkX','Social Network Analysis','CICIDS2017','Graph Theory','Centrality Measures'],overview:'Transformed raw network flow data into a directed graph to surface hidden communication patterns that traditional signature-based detection misses. By treating network hosts as nodes and traffic flows as weighted directed edges, structural anomalies become visible — lateral movement that never triggers a rule-based alert appears clearly as an anomalous inter-community edge.',points:['Processed and modeled 191,000+ CICIDS2017 flow records as a directed weighted graph using Python and NetworkX','Applied degree centrality to identify the most connected hosts — primary candidates for C2 communication or pivoting activity','Used betweenness centrality to find bridge hosts; compromising these maximizes adversarial lateral reach','Applied Louvain community detection to discover natural cluster groupings, separating normal subnets from anomalous communication patterns','Detected inter-community edges crossing cluster boundaries — a structural indicator of lateral movement absent from raw log review','Compared clustering coefficients and graph density between attack and benign traffic, revealing measurably distinct structural properties'],skills:['Python','NetworkX','Pandas','Social Network Analysis','Graph Theory','Data Analysis','Security Research']},
+  'traffic-db':{cat:'Database Systems — Drexel University · INFO605',title:'Network Traffic Analyzer & Security Monitoring System',context:'Purpose-built security database enabling SOC-style analysis of 191,000+ real network flows',tags:['MySQL','Oracle','SQL','3NF Normalization','CICIDS2017','Alert Engineering'],overview:'Designed a purpose-built security monitoring database from 191,000+ real network flow records, enabling structured SOC-style analysis of attack patterns impossible with flat CSV files. The system auto-generates severity-based alerts and provides multi-table analytics for attack pattern detection.',points:['Designed a fully normalized 3NF relational schema with four core entities: Devices, Packets, Flows, and Alerts','Ingested 191,000+ CICIDS2017 flow records into MySQL and Oracle, handling data type mapping and referential integrity','Implemented trigger-based auto-generation of Alerts for every non-benign traffic record, with severity scoring from flow characteristics','Built multi-table SQL queries for attack detection (DDoS, port scan, brute-force patterns), device profiling, and protocol distribution','Developed flow-alert correlation queries enabling an analyst to trace from raw flow to generated alert — replicating SIEM correlation logic','Validated results against known CICIDS2017 ground truth labels to confirm alert accuracy'],skills:['MySQL','Oracle SQL','3NF Normalization','Database Design','SQL Analytics','Security Monitoring']},
+  'slap':{cat:'Computer Networks — Drexel University · CS544',title:'Secure Log Aggregation Protocol (SLAP)',context:'Custom stateful application protocol designed from the ground up with security as the primary constraint',tags:['QUIC/UDP','TLS 1.3','HMAC-SHA256','DFA','ELK Stack','Protocol Engineering'],overview:'Designed SLAP from scratch — a stateful, secure protocol for aggregating logs from distributed endpoints to a centralized collector, modeled on how production SIEM systems operate. Every design decision was security-first: encryption, authentication, integrity verification, and replay protection built into the specification itself.',points:['Designed over QUIC/UDP for its built-in TLS 1.3 handshake, reduced connection latency, and stream multiplexing over TCP','Implemented mutual TLS 1.3 authentication — both client and collector verify certificates before any data is transmitted','Added HMAC-SHA256 integrity on every log message, ensuring tampering is detectable even if transport protection is bypassed','Modeled session lifecycle as a DFA with four states: HELLO → AUTH → LOG_ENTRY → GOODBYE, preventing out-of-order message abuse','Integrated with ELK Stack for real-time SIEM-style visualization and alerting on received logs','Validated against 5 adversarial test cases: injection, replay attacks, and malformed message handling','Supported real-time streaming and batch transmission with configurable buffer sizes and flush intervals'],skills:['QUIC','UDP','TLS 1.3','HMAC','Protocol Design','DFA','ELK Stack','Python','SIEM Integration']},
+  'netsec-labs':{cat:'Network Security — Drexel University · SE578',title:'Network Security Labs — Packet Analysis & Transport Attacks',context:'Hands-on offensive security lab series executed in a 3-VM controlled environment',tags:['ARP Poisoning','SYN Flooding','TCP Hijacking','Scapy','Wireshark','MITM'],overview:'A series of hands-on offensive labs where network protocols were attacked at the packet level — not simulated clicks, but actual packet-level exploitation using Scapy and Wireshark. Each attack was followed by analysis and validation of countermeasures.',points:['Packet Sniffing: Captured live traffic in promiscuous mode, extracting credentials from unencrypted Telnet sessions','IP Spoofing: Crafted and injected raw IP packets with forged source addresses, demonstrating absence of IPv4 source validation','ARP Cache Poisoning: Sent unsolicited ARP Replies to both victim and gateway, successfully positioning as a Man-in-the-Middle','MITM Interception: Intercepted and modified live Telnet session content in transit — demonstrating full real-world impact','SYN Flooding: Exhausted a server\'s TCP half-open connection queue with spoofed SYN packets, blocking legitimate connections','TCP Session Hijacking: Injected malicious data into an established TCP session by predicting sequence numbers','Countermeasure Validation: Confirmed SYN cookies as effective SYN flood mitigation; tested dynamic ARP inspection'],skills:['Scapy','Wireshark','TCP/IP','ARP','SYN Flooding','MITM','Packet Analysis','Ethical Hacking']},
+  'syssec-labs':{cat:'Systems Security — Drexel University · SE578',title:'Systems Security Labs — Buffer Overflow, Race Conditions & Tor Analysis',context:'Three independent explorations: binary exploitation, race condition attacks, and privacy system analysis',tags:['Buffer Overflow','Shellcode','TOCTOU','ASLR','StackGuard','Set-UID','Tor'],overview:'Three independent lab explorations covering low-level systems vulnerabilities and privacy systems — from writing working shellcode to exploiting race conditions in privileged programs to critically reviewing Tor\'s privacy model.',points:['Buffer Overflow: Identified vulnerable stack buffers in 32-bit Linux binaries, calculated padding to overwrite the return address, and injected NOP sled + shellcode for arbitrary code execution','Countermeasure Evaluation: Tested StackGuard, ASLR, and non-executable stack; measured which combinations defeat the exploit and how 32-bit ASLR is partly defeatable via brute force','TOCTOU Race Condition: Demonstrated Time-of-Check-Time-of-Use vulnerability in a Set-UID program using symbolic link manipulation — winning the race to redirect file I/O to /etc/passwd','Privilege Escalation: Successfully escalated from user to root by exploiting the race window between check and use','Dash Shell Privilege Drop: Analyzed implications of dash dropping elevated privileges on execution','Tor Analysis: Structured critical review of Tor\'s privacy guarantees — circuit construction, layered encryption, exit node risks, correlation attacks, limitations against global passive adversaries'],skills:['C','Linux','GDB','Buffer Overflow','Shellcode','ASLR','StackGuard','TOCTOU','Set-UID','Tor','Privacy Research']},
+  'crypto':{cat:'Cryptography — Drexel University · CS523 / CS590',title:"Blind RSA Signatures & Bitcoin's ECDSA",context:'Two cryptographic protocols implemented from first principles in Python — no library abstractions for the core mathematics',tags:['RSA','ECDSA','Elliptic Curves','Python','Blockchain','Blind Signatures','Number Theory'],overview:"Two cryptographic implementations built without library abstractions for the core math. First: a blind RSA signature protocol where a signer signs a message without seeing its content. Second: Bitcoin's ECDSA scheme over a finite elliptic curve, reproducing exactly how Bitcoin keys and transaction signatures work.",points:["Blind RSA: Full protocol — blinding (client multiplies hash by random r), signing (server applies RSA private key), unblinding (client removes r), and verification","Unlinkability: Demonstrated that the signer cannot link the blinded message to the unblinded signature — the privacy guarantee for e-cash and anonymous voting","ECDSA over Finite Field: Scalar multiplication from scratch — point addition, point doubling, and double-and-add for large-scalar computation","Bitcoin Key Generation: Private key → public key (scalar × G) → signature (r,s) → verification over a transaction hash, full workflow","Discrete Logarithm Security: Documented why reversing scalar multiplication (solving ECDLP) is computationally infeasible at standard key sizes","Nonce Reuse Vulnerability: Analyzed why ECDSA must use a unique nonce per signature — nonce reuse leaks the private key, as seen in the Sony PS3 exploit"],skills:['Python','RSA','ECDSA','Elliptic Curve Cryptography','Blind Signatures','Blockchain','Number Theory','Cryptographic Protocol Analysis']},
+  'conti':{cat:'Threat Intelligence — Drexel University · INFO710',title:'Conti Ransomware Threat Analysis & Detection Engineering',context:'Structured threat analysis producing actionable detection logic mapped to MITRE ATT&CK kill-chain phases',tags:['MITRE ATT&CK','Ransomware Analysis','Threat Intelligence','EDR','Network Segmentation','Kill Chain'],overview:'Structured threat analysis of the Conti ransomware group — one of the most prolific RaaS operations documented. Beyond cataloging what Conti does, this project produced actionable detection logic and controls mapped to specific attack phases.',points:['Analyzed real Conti incidents and 2021 leaked Conti playbooks to identify 14 distinct behaviors across the kill chain','Mapped all 14 to MITRE ATT&CK: T1486, T1490, T1021, T1059, T1078, T1083, and eight additional techniques','Designed EDR detection rules targeting Cobalt Strike beacon behavior, PowerShell lateral movement, and mass file encryption','Designed network segmentation controls — microsegmentation, restricted SMB/RDP paths — blocking lateral movement at 3 of 5 stages','Created a detection coverage matrix mapping controls to ATT&CK techniques, identifying gaps at credential access and discovery phases','Aligned all recommendations to NIST 800-61: Preparation, Detection, Containment, Eradication, Recovery'],skills:['MITRE ATT&CK','Threat Intelligence','EDR Detection Engineering','NIST 800-61','Network Segmentation','Incident Response','Ransomware Analysis']},
+  'cicd':{cat:'DevSecOps — VisioneerIT / Drexel University',title:'Secure CI/CD Pipeline with Integrated Security Controls',context:'Hardened build pipeline treating security as a first-class citizen — blocking vulnerabilities before production',tags:['GitHub Actions','OWASP ZAP','Trivy','Bandit','HashiCorp Vault','SAST','DAST','SCA','IAM'],overview:'A production-grade hardened CI/CD pipeline where security gates are built into every stage. Every commit triggers parallel automated security scanning across static code, dynamic application, container layers, and dependency chains. Findings above CVSS threshold automatically fail the build.',points:['Multi-stage GitHub Actions workflow with parallel security scan jobs — SAST, DAST, SCA, container scanning run concurrently','Bandit (Python SAST) detects hardcoded credentials, SQL injection, and insecure function calls at the code level','OWASP ZAP (DAST) runs black-box tests against a staging deployment, discovering injection points and security header misconfigurations','Trivy scans Docker images and application dependencies for known CVEs, blocking builds with high/critical findings','HashiCorp Vault for secrets management — all API keys injected at runtime, never stored in environment variables or config files','Least-privilege IAM roles on the CI/CD service account prevent privilege escalation if the pipeline account is compromised','Quality gates: builds fail automatically on CVSS ≥ 7.0 findings'],skills:['GitHub Actions','OWASP ZAP','Trivy','Bandit','HashiCorp Vault','Docker','IAM','SAST','DAST','SCA','DevSecOps']},
+  'cloud':{cat:'Cloud Computing Technology — Drexel University · CT605',title:'Cloud Computing Security Portfolio',context:'Multi-scenario cloud security analysis from a CISO and security architect perspective',tags:['Cloud Security','IaaS/PaaS/SaaS','SDN Security','NFV Security','AWS','Risk Management'],overview:'Comprehensive multi-scenario portfolio analyzing cloud architecture decisions through a security leadership lens. Covered service model security trade-offs, SDN/NFV vulnerabilities, and enterprise cloud migration.',points:['Evaluated IaaS/PaaS/SaaS models from a CISO perspective at a financial institution — analyzing the shared responsibility model and retained controls','Prioritized top cloud threats (data breaches, DoS, insider threats, insecure APIs, account hijacking) with defense-in-depth mitigations','Analyzed SDN security: centralized control plane as SPOF, controller hardening, southbound API authentication, east-west visibility','Analyzed NFV security: hypervisor attack surface, VNF isolation, multi-tenancy risks, orchestration security','Reviewed real SDN/NFV deployments at Google (B4 WAN) and AT&T (Domain 2.0) against identified threat models','Applied design principles across four enterprise migration scenarios including SDDC — workload classification, segmentation, compliance'],skills:['Cloud Security','AWS','SDN Security','NFV Security','IaaS/PaaS/SaaS','Risk Management','Compliance','Cloud Architecture']},
+  'brain':{cat:'Machine Learning — Drexel University',title:'Brain Tumor Classification using Deep Learning',context:'Automated medical image diagnostic system comparing CNN against traditional ML baselines',tags:['CNN','Deep Learning','Medical Imaging','scikit-learn','Data Augmentation','Model Evaluation'],overview:'Automated brain tumor detection system from MRI scans using a CNN. Benchmarked against traditional ML baselines, demonstrating why CNNs outperform handcrafted feature approaches on spatial medical imaging.',points:['Dataset: 253 brain MRI images (tumor vs. no tumor), with class imbalance addressed via data augmentation','Preprocessing: resizing, normalization, augmentation (flip, rotation ±15°, zoom 0.1) to improve generalization','CNN: Conv → ReLU → MaxPool → Conv → ReLU → MaxPool → Flatten → Dense → Sigmoid for hierarchical spatial feature extraction','Outperformed SVM with RBF kernel and Random Forest on held-out test data','Evaluated using precision, recall, F1, confusion matrix — threshold optimized to prioritize recall (missed tumors carry greater clinical risk)','Feature hierarchy comparison: CNNs learn edges → textures → morphology automatically vs. SVM/RF requiring handcrafted HOG features'],skills:['Python','TensorFlow/Keras','CNN','Medical Imaging','Computer Vision','scikit-learn','Data Augmentation','Model Evaluation']},
+  'gmm':{cat:'Final Year Project — GRIET · Aug 2023 – Jun 2024',title:'Customer Segmentation using Gaussian Mixture Model',context:'Probabilistic clustering pipeline improving on K-Means through covariance-aware cluster modeling',tags:['GMM','Python','Probabilistic Clustering','scikit-learn','Statistical Modeling','Data Analysis'],overview:'Customer segmentation pipeline using Gaussian Mixture Models — a probabilistic approach that allows each cluster its own shape, size, and orientation via covariance matrix parameterization, outperforming hard-assignment clustering on real behavioral data.',points:['Data pipeline: collected, cleaned, and feature-engineered behavioral data (purchase frequency, transaction value, recency, product categories)','Applied standardization to prevent high-magnitude features from dominating during clustering','Implemented GMM with full covariance matrices, enabling elliptical rather than spherical cluster shapes','Used BIC and AIC to select optimal number of components, balancing model complexity against fit quality','Soft probabilistic assignment: each customer receives a membership probability vector, enabling nuanced boundary analysis','Compared against K-Means using Silhouette Score and Davies-Bouldin Index — GMM showed measurably better separation','Interpreted cluster behavioral profiles: high-value frequent buyers, dormant churners, new explorers, seasonal purchasers'],skills:['Python','scikit-learn','GMM','Statistical Modeling','Pandas','Matplotlib','Customer Analytics']},
+  'drawing':{cat:'Mini Project — GRIET · Jan 2023 – Jul 2023',title:'Virtual Drawing using OpenCV & MediaPipe',context:'Real-time computer vision system for gesture-based freehand drawing via standard webcam',tags:['OpenCV','MediaPipe','Python','Hand Landmark Detection','Real-Time Systems','Image Processing'],overview:'Real-time computer vision application transforming a standard webcam into a gesture-controlled virtual drawing canvas. MediaPipe\'s hand landmark model tracks finger positions at 30+ FPS, rendered as smooth drawing strokes on the live video feed.',points:['Hand detection using MediaPipe Hands — 21 3D hand landmarks per frame at low latency on a standard CPU','Tracked index fingertip (#8) and middle fingertip (#12) to distinguish drawing mode from pause mode based on inter-finger distance','On-screen color palette and brush size selection via gesture zones — no keyboard or mouse required','Smooth stroke rendering by connecting consecutive fingertip positions with configurable thickness and opacity','Object outline detection mode using Canny edge detection + contour finding — auto-highlights real-world objects held in front of camera','Eraser mode and canvas clear gesture for fully gesture-operated interaction','Optimized frame processing for low latency in a single processing loop'],skills:['Python','OpenCV','MediaPipe','Real-Time Computer Vision','Hand Landmark Detection','Image Processing','Gesture Recognition']},
+};
+
+const PUBS = {
+  'aikido':{type:'Technical Article',title:'Aikido: Automated Security for Code Modernization',pub:'VisioneerIT',date:'December 16, 2025',url:'https://www.visioneerit.com/articles/aikido-code-modernization',overview:'Explores how automated security platforms like Aikido transform legacy code modernization — moving security from a final pre-release gate to a continuous in-workflow activity.',points:['Real-time vulnerability detection integrated into the development workflow','Automated dependency scanning and upgrade guidance with compatibility analysis','Secret scanning to detect hardcoded keys, tokens, and credentials in source control','Security header enforcement on web applications','Integration patterns for code editors and CI/CD pipelines','Case studies demonstrating security posture improvement through modernization']},
+  'modern-defense':{type:'Technical Article',title:'Modern Defense: Security-Driven Code Modernization',pub:'VisioneerIT',date:'December 16, 2025',url:'https://www.visioneerit.com/articles/modern-defense-security-driven-code-modernization',overview:'Argues that security must be the guiding principle when modernizing legacy codebases — framing secure modernization as an ongoing discipline of iterative improvement.',points:['Why legacy codebases carry elevated risk: technical debt, EOL dependencies, undocumented security decisions','Role of Aikido Security in continuous vulnerability visibility throughout the modernization cycle','Using Swimm for living documentation synchronized with the evolving codebase','Heimdal for endpoint and network protection during the coexistence period','Secure-by-default design: new code adopts security-first patterns from inception','Measuring security posture improvement over time']},
+  'cmaas':{type:'White Paper',title:'Code Modernization as a Service (CMaaS): Modernize Legacy Systems Securely',pub:'VisioneerIT',date:'2025',url:'https://www.visioneerit.com/services/code-modernization',overview:'Foundational white paper defining the CMaaS methodology — from legacy assessment through production-ready secure modern architecture using incremental, documentation-first, security-gated phases.',points:['Legacy assessment: technical debt, security vulnerabilities, EOL dependencies, compliance gaps','Incremental modernization: controlled phases, not high-risk big-bang rewrites','Documentation-first: document existing behavior before modifying it','Security-gated phases: each stage must clear vulnerability scanning and code review','Technology stack upgrade roadmap with security-first selection criteria','Re-architecture patterns from monolith to microservices, on-premise to cloud-native','Compliance alignment: ISO 27001, NIST CSF, and industry-specific requirements']},
+};
+
+function openProject(id){
+  const p=PROJECTS[id];if(!p)return;
+  document.getElementById('modal-breadcrumb').textContent='Projects / '+p.title.slice(0,34)+'...';
+  document.getElementById('modal-body').innerHTML=`
+    <div class="modal-category">${p.cat}</div>
+    <div class="modal-title">${p.title}</div>
+    <div class="modal-context">${p.context}</div>
+    <div class="modal-tags">${p.tags.map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div>
+    <div class="modal-sec"><h4>Overview</h4><p>${p.overview}</p></div>
+    <div class="modal-sec"><h4>What I Built &amp; How</h4><ul>${p.points.map(pt=>`<li>${pt}</li>`).join('')}</ul></div>
+    <div class="modal-sec"><h4>Skills Demonstrated</h4><div class="modal-skill-row">${p.skills.map(s=>`<span class="modal-skill">${s}</span>`).join('')}</div></div>
+  `;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function openPub(id){
+  const p=PUBS[id];if(!p)return;
+  document.getElementById('modal-breadcrumb').textContent='Publications / '+p.type;
+  document.getElementById('modal-body').innerHTML=`
+    <div class="modal-category">${p.type} — ${p.pub} · ${p.date}</div>
+    <div class="modal-title">${p.title}</div>
+    <div class="modal-context">Published on the VisioneerIT website — live and publicly accessible</div>
+    <div class="modal-sec"><h4>Summary</h4><p>${p.overview}</p></div>
+    <div class="modal-sec"><h4>Key Topics Covered</h4><ul>${p.points.map(pt=>`<li>${pt}</li>`).join('')}</ul></div>
+    <a class="modal-action" href="${p.url}" target="_blank">Read Full Publication ↗</a>
+  `;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow='';}
+function handleModalBg(e){if(e.target===document.getElementById('modal'))closeModal();}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+// ── PARTICLE NETWORK ──────────────────────────────────────────────────────────
+(function(){
+  const hero=document.getElementById('hero');
+  const c=document.getElementById('cv-net');
+  const x=c.getContext('2d');
+  function resize(){c.width=hero.offsetWidth;c.height=hero.offsetHeight;}
+  resize();window.addEventListener('resize',resize);
+  const nodes=Array.from({length:60},()=>({
+    x:Math.random()*c.width,y:Math.random()*c.height,
+    vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22,
+    r:Math.random()*1.4+.8,
+  }));
+  function draw(){
+    x.clearRect(0,0,c.width,c.height);
+    for(let i=0;i<nodes.length;i++){
+      for(let j=i+1;j<nodes.length;j++){
+        const d=Math.hypot(nodes[j].x-nodes[i].x,nodes[j].y-nodes[i].y);
+        if(d<110){
+          x.strokeStyle=`rgba(79,142,247,${(1-d/110)*.12})`;
+          x.lineWidth=.65;x.beginPath();x.moveTo(nodes[i].x,nodes[i].y);x.lineTo(nodes[j].x,nodes[j].y);x.stroke();
+        }
+      }
+    }
+    nodes.forEach(n=>{
+      n.x+=n.vx;n.y+=n.vy;
+      if(n.x<0||n.x>c.width)n.vx*=-1;
+      if(n.y<0||n.y>c.height)n.vy*=-1;
+      x.beginPath();x.arc(n.x,n.y,n.r,0,Math.PI*2);
+      x.fillStyle='rgba(79,142,247,.5)';x.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// ── TYPING ────────────────────────────────────────────────────────────────────
+(function(){
+  const phrases=['Network Security Engineer','MS · Computer Security & Privacy','Protocol Design · TLS 1.3 · QUIC','MITRE ATT&CK · NIST 800-61','3 Publications · Live in Production'];
+  let i=0,j=0,del=false;
+  const el=document.getElementById('typing');
+  function tick(){
+    const cur=phrases[i];
+    if(!del){el.textContent=cur.slice(0,j+1);j++;if(j===cur.length){del=true;setTimeout(tick,1900);return;}}
+    else{el.textContent=cur.slice(0,j-1);j--;if(j===0){del=false;i=(i+1)%phrases.length;}}
+    setTimeout(tick,del?32:58);
+  }
+  tick();
+})();
+
+// ── SCROLL FADE ───────────────────────────────────────────────────────────────
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis');});},{threshold:.08});
+document.querySelectorAll('.fi').forEach(el=>io.observe(el));
+
+// ── COUNTERS ──────────────────────────────────────────────────────────────────
+const co=new IntersectionObserver(es=>{es.forEach(e=>{
+  if(!e.isIntersecting)return;
+  const el=e.target,t=+el.dataset.count;if(isNaN(t))return;
+  let n=0;const s=()=>{n=Math.min(n+1,t);el.textContent=n;if(n<t)requestAnimationFrame(s);};s();co.unobserve(el);
+});},{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>co.observe(el));
+</script>
+</body>
+</html>
